@@ -1,8 +1,10 @@
 <!doctype html>
 
-<title>Token</title>
-<h2>Token: {{token}}</h2>
+<title>Info</title>
+<h2>Response: {{all}}</h2>
 <script type="text/javascript">
   var targetWindow = window.parent;
-  targetWindow.postMessage('token:{{token}}', 'http://localhost:8000');
+  var result = '{{all}}';
+  var jsonResult = JSON.parse(result.replace(/&#34;/gi, '"'))
+  targetWindow.postMessage(jsonResult, 'http://localhost:8000');
 </script>
